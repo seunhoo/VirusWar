@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{9dd7d722-776d-4bc8-a652-61c5120cff48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter2">
+      <UniqueIdentifier>{d1a9c3a5-634c-4d35-95a3-50db96ae7299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter3">
+      <UniqueIdentifier>{d180b425-507a-4e85-8e1d-ebbf946ad1b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter4">
+      <UniqueIdentifier>{7e051c6b-f0d3-48b8-b1d3-5c201b62e1fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter4\NewFilter1">
+      <UniqueIdentifier>{da4401e0-1143-4e92-8116-06d6b5d3660c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter4\NewFilter2">
+      <UniqueIdentifier>{eb5b33b5-0728-40ec-aa7d-e0b90501658a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter4\NewFilter3">
+      <UniqueIdentifier>{5f529655-00af-4a36-92ad-b4d9878b8b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter4\NewFilter4">
+      <UniqueIdentifier>{7d142aca-523d-42f4-bf5b-a3fe8b7d90ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Singleton.h">
+      <Filter>NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneDirector.h">
+      <Filter>NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="CollideMgr.h">
+      <Filter>NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="LineMgr.h">
+      <Filter>NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectMgr.h">
+      <Filter>NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundMgr.h">
+      <Filter>NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="TextMgr.h">
+      <Filter>NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceMgr.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>NewFilter4</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>NewFilter4\NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="Way.h">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Pr14.cpp" />
+    <ClCompile Include="App.cpp">
+      <Filter>NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneDirector.cpp">
+      <Filter>NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="CollideMgr.cpp">
+      <Filter>NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="LineMgr.cpp">
+      <Filter>NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectMgr.cpp">
+      <Filter>NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundMgr.cpp">
+      <Filter>NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="TextMgr.cpp">
+      <Filter>NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceMgr.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>NewFilter4</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>NewFilter4\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="Way.cpp">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
