@@ -73,9 +73,6 @@
     <ClInclude Include="ResourceMgr.h">
       <Filter>NewFilter2</Filter>
     </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>NewFilter4</Filter>
-    </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>NewFilter4\NewFilter1</Filter>
     </ClInclude>
@@ -86,6 +83,24 @@
       <Filter>NewFilter4\NewFilter1</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="StageTwo.h">
+      <Filter>NewFilter4\NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMgr.h">
+      <Filter>NewFilter4\NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
       <Filter>NewFilter4\NewFilter4</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,9 +149,6 @@
     <ClCompile Include="ResourceMgr.cpp">
       <Filter>NewFilter2</Filter>
     </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>NewFilter4</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>NewFilter4\NewFilter1</Filter>
     </ClCompile>
@@ -147,6 +159,24 @@
       <Filter>NewFilter4\NewFilter1</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>NewFilter4\NewFilter4</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>NewFilter4\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="StageTwo.cpp">
+      <Filter>NewFilter4\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMgr.cpp">
+      <Filter>NewFilter4\NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="Square.cpp">
       <Filter>NewFilter4\NewFilter4</Filter>
     </ClCompile>
   </ItemGroup>

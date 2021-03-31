@@ -3,16 +3,16 @@
 
 void SoundMgr::Play(const WCHAR* pFileName, bool loop)
 {
-	WCHAR szFile[256] = L"../Sound/";
-	lstrcat(szFile, pFileName);
+	WCHAR szFullPath[256] = L"../Sound/";
+	lstrcatW(szFullPath, pFileName);
 
 	if (!loop)
 	{
-		PlaySound(szFile, NULL, SND_ASYNC | SND_FILENAME | SND_NOSTOP);
+		PlaySound(szFullPath, NULL, SND_ASYNC | SND_NOSTOP | SND_FILENAME);
 	}
-	else
+	else if (loop)
 	{
-		PlaySound(szFile, NULL, SND_ASYNC | SND_FILENAME | SND_NOSTOP | SND_NOSTOP);
+		PlaySound(szFullPath, NULL, SND_ASYNC | SND_LOOP | SND_NOSTOP | SND_FILENAME);
 	}
 }
 

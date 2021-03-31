@@ -144,10 +144,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="CollideMgr.h" />
+    <ClInclude Include="GameMgr.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="LineMgr.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectMgr.h" />
     <ClInclude Include="Player.h" />
@@ -159,7 +162,9 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Square.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="StageTwo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextMgr.h" />
     <ClInclude Include="Texture.h" />
@@ -167,10 +172,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Boss.cpp" />
     <ClCompile Include="CollideMgr.cpp" />
+    <ClCompile Include="GameMgr.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="LineMgr.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectMgr.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -182,7 +190,9 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Square.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StageTwo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>

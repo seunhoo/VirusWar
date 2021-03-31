@@ -32,6 +32,7 @@ inline void SafeDelete(T*&x);
 #include"Texture.h"
 #include"ResourceMgr.h"
 #include"Sprite.h"
+#include"Animation.h"
 #include"SoundMgr.h"
 #include"CollideMgr.h"
 #include"LineMgr.h"

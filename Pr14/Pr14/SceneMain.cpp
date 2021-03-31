@@ -12,6 +12,8 @@ void SceneMain::Init()
 	m_Sprite = Sprite::Create(L"Painting/Intro/Intro1.png");
 	m_Sprite->SetPosition(1920 / 2, 1080 / 2);
 	i = 2;
+
+	//SoundMgr::GetInst()->Play(L"bgm1.wav",1);
 }
 
 void SceneMain::Update(float deltatime, float time)
