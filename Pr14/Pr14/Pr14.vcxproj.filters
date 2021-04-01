@@ -103,6 +103,12 @@
     <ClInclude Include="Square.h">
       <Filter>NewFilter4\NewFilter4</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="RankMgr.h">
+      <Filter>NewFilter4\NewFilter2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -178,6 +184,12 @@
     </ClCompile>
     <ClCompile Include="Square.cpp">
       <Filter>NewFilter4\NewFilter4</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="RankMgr.cpp">
+      <Filter>NewFilter4\NewFilter2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

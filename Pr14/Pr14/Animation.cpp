@@ -23,21 +23,28 @@ void Animation::Add(std::wstring filname, int first, int last)
 
 void Animation::Update(float deltatime, float time)
 {
-	m_FrameCount += dt;
-
-	if (m_FrameCount > m_Delay)
+	if (m_Destroy)
 	{
-		m_CurrentFrame++;
-		m_FrameCount = 0;
+		m_Anim.at(m_CurrentFrame)->SetDestroy(true);
 	}
+	m_FrameCount++;
+
+	if (m_AutoPlay == true)
+		if (m_FrameCount > m_Delay)
+		{
+			m_CurrentFrame++;
+			m_FrameCount = 0;
+		}
 
 	if (m_CurrentFrame > m_Anim.size() - 1)
+	{
 		m_CurrentFrame = 0;
-
+	}
 	m_Anim.at(m_CurrentFrame)->A = A;
-	m_Anim.at(m_CurrentFrame)->B = B;
 	m_Anim.at(m_CurrentFrame)->R = R;
+	m_Anim.at(m_CurrentFrame)->G = G;
 	m_Anim.at(m_CurrentFrame)->B = B;
+
 	m_Anim.at(m_CurrentFrame)->Update(deltatime, time);
 
 

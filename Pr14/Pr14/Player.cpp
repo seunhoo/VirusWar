@@ -32,7 +32,10 @@ Player::Player()
 
 	m_Line = new LineMgr();
 	m_Line->Init(1, true);
-	m_Line->Setcolor(255, 255, 255, 255);
+	if (SceneDirector::GetInst()->m_Stage== STAGE::STAGEONE)
+		m_Line->Setcolor(255, 255, 255, 255);
+	else if(SceneDirector::GetInst()->m_Stage == STAGE::STAGETWO)
+		m_Line->Setcolor(255, 255, 0, 0);
 
 	i = 0;
 	m_Length = 1;
@@ -43,25 +46,40 @@ Player::Player()
 	m_Text = new TextMgr();
 	m_Text->Init(35, "±Ã¼­Ã¼");
 	m_Text->SetColor(255, 255, 255,0 );
+	
+	m_ScoreText = new TextMgr();
+	m_ScoreText->Init(35, "±Ã¼­Ã¼");
+	m_ScoreText->SetColor(255, 255, 255, 0);
 
 	m_Item = new Animation();
 	m_Item->Init(1, 1);
-	m_Item->Add(L"Effect/Invincible", 0, 1);
+	m_Item->Add(L"Painting/Effect/Invincible", 0, 5);
+	m_Item->SetPosition(m_Position);
 
 
+	GM->SetIn(false);
 }
 
 void Player::Update(float deltatime, float time)
 {
 	Cheat();
+	Item(deltatime,time);
 	Move();
 	MakeSquare();
-
 	if (GameMgr::GetInst()->GetIn() == false)
 	{
 		ObjMgr->CollisionCheak(this, "Monster");
 	}
-
+	
+	if (m_CollideCheck == true)
+	{
+		m_CollideTime += dt;
+		if (m_CollideTime >= 1)
+		{
+			GM->SetIn(false);
+			m_CollideTime = 0;
+		}
+	}
 
 }
 
@@ -179,8 +197,6 @@ void Player::MakeSquare()
 		c = m_LinePos[0].x * m_LinePos[1].y - m_LinePos[1].x * m_LinePos[0].y;
 	}
 	dist = (float)std::abs(a * m_Position.x + b * m_Position.y + c) / (float)std::sqrt(a * a + b * b);
-
-	std::cout << dist << std::endl;
 }
 
 void Player::Cheat()
@@ -191,14 +207,7 @@ void Player::Cheat()
 	}
 	if (GameMgr::GetInst()->GetIn() == true)
 	{
-		m_InTime += dt;
-		m_Player->A -= 10;
-		if (m_InTime >= 2)
-		{
-			m_Player->A = 255;
-			m_InTime = 0;
-			GameMgr::GetInst()->SetIn(false);
-		}
+
 	}
 	
 	if (INPUT->GetKey(VK_F2) == KeyState::DOWN)
@@ -206,7 +215,7 @@ void Player::Cheat()
 		int random = rand() % 4 + 1;
 		if (random == 1)
 		{
-			GameMgr::GetInst()->SetSpeed(true);
+			GM->SetSpeed(true);
 		}
 		else if (random == 2)
 		{
@@ -230,16 +239,7 @@ void Player::Cheat()
 		ObjMgr->Release();
 		SceneDirector::GetInst()->ChangeScene(new MainMenu());
 	}
-	if (INPUT->GetKey(VK_F5) == KeyState::DOWN)
-	{
-		ObjMgr->Release();
-		SceneDirector::GetInst()->ChangeScene(new Stage());
-	}
-	if (INPUT->GetKey(VK_F6) == KeyState::DOWN)
-	{
-		ObjMgr->Release();
-		SceneDirector::GetInst()->ChangeScene(new StageTwo());
-	}
+	
 
 }
 
@@ -252,6 +252,7 @@ void Player::Item(float deltatime, float time)
 		m_PlayerSpeed = 20;
 		if (m_ItemTime >= 2)
 		{
+			m_PlayerSpeed = 10;
 			GM->SetSpeed(false);
 			m_ItemTime = 0;
 		}
@@ -259,19 +260,52 @@ void Player::Item(float deltatime, float time)
 	}
 	if (GM->GetDefence() == true)
 	{
+		
+
 		m_Item = new Animation();
 		m_Item->Init(1, 1);
 		m_Item->Add(L"Painting/Effect/Defence", 0, 1);
-
+		m_Item->SetPosition(m_Position);
 		m_Item->Update(deltatime, time);
+
+
 	}
 	if (GM->GetIn() == true)
 	{
+		m_DefenceTime += dt;
+
+		if (m_DefenceTime >= 2)
+		{
+			m_DefenceTime = 0;
+			GM->SetIn(false);
+		}
 		GM->SetIn(true);
 	}
 	if (GM->GetHeal() == true)
 	{
+		m_Item = new Animation();
+		m_Item->Init(1, 1);
+		m_Item->Add(L"Painting/Effect/Invincible", 0, 5);
+		m_Item->SetPosition(m_Position);
 		m_Item->Update(deltatime, time);
+
+		if (m_Item->m_CurrentFrame >=4)
+		{
+			GM->SetHeal(false);
+
+			m_HealTime = 0;
+
+			GM->AddHp(1);
+
+			if (GM->GetHp() > 5)
+			{
+				RankMgr::GetInst()->AddScore(100);
+				GM->SetHp();
+
+			}
+		}
+
+	
 	}
 
 }
@@ -300,10 +334,14 @@ void Player::Render()
 
 	Renderer::GetInst()->GetSprite()->Begin(D3DXSPRITE_ALPHABLEND);
 	m_Text->print("HP : " + std::to_string(GameMgr::GetInst()->GetHp()),1700,10);
+	m_ScoreText->print("SCORE : " + std::to_string(RankMgr::GetInst()->GetScore()), 1920 / 2 -50, 10);
 	Renderer::GetInst()->GetSprite()->End();
 }
 
 void Player::OnCollision(Object* obj, std::string tag)
 {
-
+	if (tag == "Monster")
+	{
+		m_CollideCheck = true;
+	}
 }

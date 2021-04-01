@@ -10,6 +10,7 @@ public:
 
 	Monster(Vec2 pos, int v);
 
+
 	int m_V;
 
 	float m_Speed;
@@ -18,6 +19,9 @@ public:
 	float m_MoveTime;
 	bool m_MoveCheck;
 	bool m_RandomCheck;
+
+	float m_OutEffect;
+	bool m_OutCheck;
 
 	Vec2 m_RPos;
 

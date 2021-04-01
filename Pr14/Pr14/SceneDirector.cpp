@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "SceneDirector.h"
 
+SceneDirector::SceneDirector()
+	:m_Stage(STAGE::NONE)
+{
+}
+
 void SceneDirector::ChangeScene(Scene* newScene)
 {
 	if (m_CurrentScene)

@@ -11,6 +11,7 @@ class Player : public Object
 {
 public:
 
+
 	MoveState m_State;
 
 	Sprite* m_Player;
@@ -20,12 +21,19 @@ public:
 	float m_PlayerSpeed;
 	float m_InTime;
 	float m_ItemTime;
-
+	float m_HealTime;
 
 	int i, m_Length;
 
 	LineMgr* m_Line;
 	TextMgr* m_Text;
+	TextMgr* m_ScoreText;
+
+	float m_DefenceTime;
+
+
+	bool m_CollideCheck;
+	float m_CollideTime;
 
 
 	Vec2 m_LinePos[3000];

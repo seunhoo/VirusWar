@@ -16,6 +16,7 @@ public:
 
 	void AddHp(int hp) { m_Hp += hp; }
 	void MinusHp(int hp) { m_Hp -= hp; }
+
 	void SetHp() { m_Hp = 5; }
 	int GetHp() { return m_Hp; }
 

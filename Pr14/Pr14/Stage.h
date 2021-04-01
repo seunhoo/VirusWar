@@ -3,6 +3,8 @@ class Stage : public Scene
 {
 	Sprite* m_Sprite;
 public:
+
+
 	Stage();
 	~Stage();
 

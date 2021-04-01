@@ -1,0 +1,3 @@
+C:\Users\user\Desktop\KNKK\VirusWar\Pr14\Debug\Pr14.pdb
+C:\Users\user\Desktop\KNKK\VirusWar\Pr14\Pr14\Debug\Pr14.exe
+C:\Users\user\Desktop\KNKK\VirusWar\Pr14\Pr14\Debug\Pr14.pdb

@@ -6,6 +6,7 @@ Monster::Monster()
 }
 
 Monster::Monster(Vec2 pos, int v)
+	:m_OutCheck(true)
 {
 	m_V = v;
 	if (v == 1)
@@ -29,11 +30,31 @@ Monster::Monster(Vec2 pos, int v)
 		m_Sprite->SetParent(this);
 		SetPosition(pos);
 	}
+	if(SceneDirector::GetInst()->m_Stage == STAGE::STAGETWO)
+		m_Sprite->A = 1;
 	
 }
 
 void Monster::Update(float deltatime, float time)
 {
+	if ( SceneDirector::GetInst()->m_Stage == STAGE::STAGETWO && m_OutCheck == true)
+	{
+		m_OutEffect += dt;
+
+			m_Sprite->A += 1;
+			if (m_Sprite->A >= 254)
+			{
+				m_Sprite->A = 255;
+				m_OutCheck = false;
+				m_OutEffect = 0;
+			}
+	}
+	else if (SceneDirector::GetInst()->m_Stage == STAGE::STAGEONE)
+	{
+		m_OutEffect = false;
+	}
+	else if(m_OutCheck == false)
+	{
 	if (m_V == 1)
 	{
 		Big();
@@ -45,6 +66,8 @@ void Monster::Update(float deltatime, float time)
 	else if (m_V == 3)
 	{
 		Speed();
+	}
+
 	}
 	
 }
