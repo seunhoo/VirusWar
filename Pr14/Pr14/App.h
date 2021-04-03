@@ -18,5 +18,7 @@ public:
 
 	bool _CreateWindow();
 	bool _CreateRenderer();
+
+	bool m_Stop;
 };
 

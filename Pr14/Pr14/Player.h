@@ -26,15 +26,21 @@ public:
 	int i, m_Length;
 
 	LineMgr* m_Line;
+
 	TextMgr* m_Text;
 	TextMgr* m_ScoreText;
+	TextMgr* m_PerCent;
 
 	float m_DefenceTime;
 
 
 	bool m_CollideCheck;
+	bool m_HpCheck;
+
 	float m_CollideTime;
 
+
+	int j;
 
 	Vec2 m_LinePos[3000];
 

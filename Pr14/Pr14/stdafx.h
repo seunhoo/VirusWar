@@ -37,6 +37,7 @@ inline void SafeDelete(T*&x);
 #include"CollideMgr.h"
 #include"LineMgr.h"
 #include"TextMgr.h"
+#include"GameMgr.h"
 #include"RankMgr.h"
 
 template<class T>

@@ -3,10 +3,10 @@
 class GameMgr : public Singleton<GameMgr>
 {
 public:
-	
+
 	int m_Hp = 5;
 
-
+	float m_PerCent;
 
 	bool m_ItemSpeed;
 	bool m_ItemHeal;
@@ -32,7 +32,15 @@ public:
 	void SetDefence(bool defence) { m_ItemDefence = defence; }
 	bool GetDefence() { return m_ItemDefence; }
 
+	void AddPerCent(float percent) { m_PerCent += percent; }
+	void MinusPerCent(float percent) { m_PerCent -= percent; }
+	void ResetPerCent() { m_PerCent = 0; }
+	float GetPercent() { return m_PerCent; }
 
+
+	Vec2 m_Line[3000];
+	void AddArr(Vec2 pos, int i) { m_Line[i] = pos; }
+	Vec2 GetArr(int i) { return m_Line[i]; }
 
 
 	int m_ItemCount[5] = { 3,3,1,2,5 };

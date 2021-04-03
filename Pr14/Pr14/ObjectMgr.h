@@ -27,11 +27,12 @@ public:
 
 
 
-
+	RECT rcc;
 public:
 	void AddObject(Object* obj, const std::string tag);
 	void RemoveObject(Object* obj);
 	void CollisionCheak(Object* obj, const std::string tag);
+	void SqureCollisionCheak(Object* obj, const std::string tag);
 	void DeleteObject(std::string tag);
 
 };

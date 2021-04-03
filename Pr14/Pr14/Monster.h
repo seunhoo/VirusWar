@@ -32,6 +32,7 @@ public:
 	void Flash();
 	void Speed();
 	void Render();
+	
 	void OnCollision(Object* obj, std::string tag);
 };
 

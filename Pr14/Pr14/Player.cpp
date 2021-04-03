@@ -5,10 +5,14 @@
 #include"StageTwo.h"
 #include"MainMenu.h"
 #include"GameMgr.h"
+#include"StopScene.h"
 Player::Player()
 	:m_PlayerSpeed(10)
 	,m_State(MoveState::NONE)
+	,j(0)
 {
+	GM->SetHp();
+	App::GetInst()->m_Stop = false;
 	m_Player = Sprite::Create(L"Painting/Player/Player1.png");
 	m_Player->SetParent(this);
 
@@ -51,6 +55,10 @@ Player::Player()
 	m_ScoreText->Init(35, "궁서체");
 	m_ScoreText->SetColor(255, 255, 255, 0);
 
+	m_PerCent = new TextMgr();
+	m_PerCent->Init(35, "궁서체");
+	m_PerCent->SetColor(255, 255, 255, 0);
+
 	m_Item = new Animation();
 	m_Item->Init(1, 1);
 	m_Item->Add(L"Painting/Effect/Invincible", 0, 5);
@@ -73,14 +81,26 @@ void Player::Update(float deltatime, float time)
 	
 	if (m_CollideCheck == true)
 	{
+		GM->SetIn(true);
+		if (m_HpCheck == true)
+		{
+			GM->MinusHp(1);
+			m_HpCheck = false;
+		}
 		m_CollideTime += dt;
 		if (m_CollideTime >= 1)
 		{
+
 			GM->SetIn(false);
 			m_CollideTime = 0;
 		}
 	}
-
+	if (GM->GetHp() == 0)
+	{
+		ObjMgr->RemoveObject(this);
+		ObjMgr->AddObject(new StopScene(), "Stop");
+		//App::GetInst()->m_Stop = true;
+	}
 }
 
 void Player::Move()
@@ -158,7 +178,10 @@ void Player::MakeSquare()
 				scaley = (m_LinePos[3].y - m_LinePos[0].y) / 10;
 
 
-				ObjMgr->AddObject(new Square(Vec2(posx, posy), Vec2(std::abs(scalex), std::abs(scaley))), "Square");
+				std::cout << " 이전 j " << j << std::endl;
+				ObjMgr->AddObject(new Square(Vec2(posx, posy), Vec2(std::abs(scalex), std::abs(scaley))), "Square" + std::to_string(j));
+				j++;
+				std::cout << " 이후 j " << j << std::endl;
 
 			}
 			else
@@ -171,9 +194,10 @@ void Player::MakeSquare()
 				scalex = (m_LinePos[2].x - m_LinePos[0].x) / 10;
 				scaley = (m_LinePos[2].y - m_LinePos[0].y) / 10;
 
-
-				ObjMgr->AddObject(new Square(Vec2(posx, posy), Vec2(std::abs(scalex), std::abs(scaley))), "Square");
-
+				std::cout << " 이전 j " << j << std::endl;
+				ObjMgr->AddObject(new Square(Vec2(posx, posy), Vec2(std::abs(scalex), std::abs(scaley))), "Square" + std::to_string(j));
+				j++;
+				std::cout << " 이후 j " << j << std::endl;
 			}
 			
 			i = 1;
@@ -335,6 +359,7 @@ void Player::Render()
 	Renderer::GetInst()->GetSprite()->Begin(D3DXSPRITE_ALPHABLEND);
 	m_Text->print("HP : " + std::to_string(GameMgr::GetInst()->GetHp()),1700,10);
 	m_ScoreText->print("SCORE : " + std::to_string(RankMgr::GetInst()->GetScore()), 1920 / 2 -50, 10);
+	m_PerCent->print("PERCENT : " + std::to_string(GM->GetPercent()), 300, 10);
 	Renderer::GetInst()->GetSprite()->End();
 }
 
@@ -343,5 +368,6 @@ void Player::OnCollision(Object* obj, std::string tag)
 	if (tag == "Monster")
 	{
 		m_CollideCheck = true;
+		m_HpCheck = true;
 	}
 }

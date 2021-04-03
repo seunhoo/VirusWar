@@ -60,16 +60,34 @@ void ObjectMgr::CollisionCheak(Object* obj, const std::string tag)
 {
 	for (auto& iter : m_Objects)
 	{
-		if (iter->m_Tag == tag)
-		{
-			RECT rc;
-			if (IntersectRect(&rc, &obj->m_Collision, &iter->m_Collision))
+			if (iter->m_Tag == tag)
 			{
-				obj->OnCollision(iter, iter->m_Tag);
-				iter->OnCollision(obj, obj->m_Tag);
+				RECT rc;
+				if (IntersectRect(&rc, &obj->m_Collision, &iter->m_Collision))
+				{
+					obj->OnCollision(iter, iter->m_Tag);
+					iter->OnCollision(obj, obj->m_Tag);
+				}
+			}
+	}
+}
+
+void ObjectMgr::SqureCollisionCheak(Object* obj, const std::string tag)
+{
+	for (auto& iter : m_Objects)
+	{
+		if (iter->m_Tag != "Player" && iter->m_Tag != "Monster")
+		{
+			if (iter->m_Tag != tag)
+			{
+				
+				if (IntersectRect(&rcc, &obj->m_Collision, &iter->m_Collision))
+				{
+					obj->OnCollision(iter, iter->m_Tag);
+					iter->OnCollision(obj, obj->m_Tag);
+				}
 			}
 		}
-
 	}
 }
 

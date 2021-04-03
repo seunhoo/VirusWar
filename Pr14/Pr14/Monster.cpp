@@ -49,25 +49,26 @@ void Monster::Update(float deltatime, float time)
 				m_OutEffect = 0;
 			}
 	}
+	
 	else if (SceneDirector::GetInst()->m_Stage == STAGE::STAGEONE)
 	{
-		m_OutEffect = false;
-	}
-	else if(m_OutCheck == false)
-	{
-	if (m_V == 1)
-	{
-		Big();
-	}
-	else if (m_V == 2)
-	{
-		Flash();
-	}
-	else if (m_V == 3)
-	{
-		Speed();
+		m_OutCheck = false;
 	}
 
+	if(m_OutCheck == false)
+	{
+		if (m_V == 1)
+		{
+			Big();
+		}
+		else if (m_V == 2)
+		{
+			Flash();
+		}
+		else if (m_V == 3)
+		{	
+			Speed();
+		}
 	}
 	
 }
